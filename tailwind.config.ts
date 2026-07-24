@@ -5,20 +5,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: "#f5f1ea",
-        paper: "#faf7f2",
-        ink: "#171410",
-        ink2: "#2a251e",
-        clay: "#c25c3b",
-        moss: "#4a5940",
-        sand: "#e4dcce",
+        orange: "#ff5a00",
+        ember: "#e04d00",
+        cream: "#ede6db",
+        paper: "#f7f2e9",
+        sand: "#ded3c1",
+        ink: "#12100e",
+        ink2: "#2b2622",
       },
       fontFamily: {
-        display: ["var(--font-fraunces)", "serif"],
-        sans: ["var(--font-inter)", "sans-serif"],
+        display: ["var(--font-archivo)", "system-ui", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       letterSpacing: {
-        tightest: "-0.04em",
+        tightest: "-0.045em",
+        headline: "-0.03em",
       },
       maxWidth: {
         "8xl": "90rem",
@@ -28,9 +29,14 @@ const config: Config = {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        drift: {
+          from: { transform: "translate3d(0, 0, 0)" },
+          to: { transform: "translate3d(-50%, 0, 0)" },
+        },
       },
       animation: {
-        marquee: "marquee 28s linear infinite",
+        marquee: "marquee 32s linear infinite",
+        drift: "drift 80s linear infinite",
       },
     },
   },

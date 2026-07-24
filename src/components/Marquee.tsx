@@ -1,3 +1,5 @@
+import Logo from "./Logo";
+
 const names = [
   "Aurelia",
   "Northfield",
@@ -11,22 +13,18 @@ const names = [
 
 export default function Marquee() {
   const items = [...names, ...names];
+
   return (
-    <section className="border-y border-ink/10 bg-paper py-8">
-      <div className="mb-4 text-center text-xs uppercase tracking-[0.2em] text-ink/40">
-        Trusted by ambitious brands
-      </div>
-      <div className="relative overflow-hidden">
-        <div className="flex w-max animate-marquee gap-16">
-          {items.map((n, i) => (
-            <span
-              key={i}
-              className="font-display text-2xl md:text-3xl text-ink/30 whitespace-nowrap"
-            >
+    <section className="overflow-hidden bg-orange py-5 text-white">
+      <div className="flex w-max animate-marquee items-center">
+        {items.map((n, i) => (
+          <span key={i} className="flex items-center whitespace-nowrap">
+            <span className="font-display text-lg font-extrabold uppercase tracking-[0.12em] md:text-xl">
               {n}
             </span>
-          ))}
-        </div>
+            <Logo className="mx-8 w-9 shrink-0 text-white/70 md:mx-10" />
+          </span>
+        ))}
       </div>
     </section>
   );
