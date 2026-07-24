@@ -1,4 +1,7 @@
 const names = [
+  "Casa del Reino Church",
+  "Welcome Home Housing",
+  "Somos Reino Church",
   "Aurelia",
   "Northfield",
   "Kin & Co.",
