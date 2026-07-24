@@ -23,18 +23,16 @@ type Row = {
 };
 
 const ROWS: Row[] = [
-  { duration: 74, offset: -8, accentAt: 5 },
-  { duration: 96, reverse: true, offset: -22 },
-  { duration: 62, offset: -3, accentAt: 7 },
-  { duration: 88, reverse: true, offset: -16 },
-  { duration: 70, offset: -11, accentAt: 6 },
-  { duration: 104, reverse: true, offset: -26 },
-  { duration: 80, offset: -19, accentAt: 4 },
-  { duration: 92, reverse: true, offset: -6 },
-  { duration: 68, offset: -13, accentAt: 8 },
+  { duration: 84, offset: -8 },
+  { duration: 106, reverse: true, offset: -26, accentAt: 5 },
+  { duration: 72, offset: -3 },
+  { duration: 96, reverse: true, offset: -18 },
+  { duration: 80, offset: -13, accentAt: 6 },
+  { duration: 112, reverse: true, offset: -30 },
+  { duration: 76, offset: -21 },
 ];
 
-const PER_ROW = 8;
+const PER_ROW = 6;
 
 function MarkRow({ row }: { row: Row }) {
   const marks = Array.from({ length: PER_ROW * 2 }, (_, i) => i);
@@ -45,7 +43,7 @@ function MarkRow({ row }: { row: Row }) {
       style={{ transform: `translateX(${row.offset}rem)` }}
     >
       <div
-        className="animate-drift flex w-max items-center gap-[12vw] pr-[12vw] motion-reduce:animate-none md:gap-[5vw] md:pr-[5vw]"
+        className="animate-drift flex w-max items-center gap-[14vw] pr-[14vw] motion-reduce:animate-none md:gap-[7vw] md:pr-[7vw]"
         style={{
           animationDuration: `${row.duration}s`,
           animationDirection: row.reverse ? "reverse" : "normal",
@@ -54,10 +52,10 @@ function MarkRow({ row }: { row: Row }) {
         {marks.map((i) => (
           <Logo
             key={i}
-            className={`w-[46vw] shrink-0 md:w-[19vw] ${
+            className={`w-[52vw] shrink-0 md:w-[23vw] ${
               row.accentAt && i % row.accentAt === 0
-                ? "text-orange/[0.10]"
-                : "text-ink/[0.055]"
+                ? "text-orange/[0.06]"
+                : "text-ink/[0.038]"
             }`}
           />
         ))}
@@ -91,7 +89,7 @@ export default function LogoField() {
             initial={{ opacity: 0, scale: 1.12 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
-            className="logo-field flex flex-col gap-[6.3vw] md:gap-[2.6vw]"
+            className="logo-field flex flex-col gap-[7vw] md:gap-[4vw]"
           >
             {ROWS.map((row, i) => (
               <MarkRow key={i} row={row} />

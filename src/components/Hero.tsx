@@ -45,10 +45,12 @@ export default function Hero() {
           Forma Design Studio — est. 2016
         </motion.div>
 
-        <h1 className="mt-8 max-w-6xl font-display text-[15vw] font-extrabold uppercase leading-[0.86] tracking-tightest md:text-[8.5rem]">
-          <MaskLine delay={0.05}>Design</MaskLine>
+        <h1 className="mt-8 max-w-6xl font-display text-[15vw] font-normal uppercase leading-[0.86] tracking-headline md:text-[8.5rem]">
+          <MaskLine delay={0.05}>Design with</MaskLine>
           <MaskLine delay={0.15}>
-            <span className="text-orange">with</span> weight.
+            <span className="font-extrabold tracking-tightest text-orange">
+              weight.
+            </span>
           </MaskLine>
         </h1>
 
