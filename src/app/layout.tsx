@@ -1,12 +1,11 @@
-import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Archivo, Inter } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+  variable: "--font-archivo",
+  weight: ["500", "600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -18,9 +17,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Forma — Studio for beautiful, intentional websites",
+  title: "Forma Design Studio — brand and websites with weight",
   description:
-    "Forma is a design studio that builds beautiful, intentional websites engineered to win clients and grow your business.",
+    "Forma Design Studio designs and builds bold, considered brands and websites for companies that would rather be remembered than blend in.",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ff5a00",
 };
 
 export default function RootLayout({
@@ -29,8 +32,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="en" className={`${archivo.variable} ${inter.variable}`}>
+      <body className="bg-cream font-sans antialiased">{children}</body>
     </html>
   );
 }

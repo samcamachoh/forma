@@ -3,80 +3,97 @@ import Reveal from "./Reveal";
 const projects = [
   {
     name: "Aurelia Skincare",
+    initials: "AS",
     category: "E-commerce · Brand",
     result: "+142% inquiries",
-    gradient: "from-[#e7c9b3] via-[#d99a76] to-[#a8492f]",
+    panel: "bg-orange text-white",
+    chip: "bg-white text-ink",
   },
   {
     name: "Northfield Capital",
+    initials: "NC",
     category: "Finance · Web platform",
-    result: "3.1x qualified leads",
-    gradient: "from-[#cdd6c4] via-[#8fa07f] to-[#3f4d34]",
+    result: "3.1× qualified leads",
+    panel: "bg-ink text-cream",
+    chip: "bg-orange text-white",
   },
   {
     name: "Kin & Co. Studio",
+    initials: "KC",
     category: "Hospitality · Website",
     result: "+68% bookings",
-    gradient: "from-[#f0e2c8] via-[#dcb772] to-[#8a5a2b]",
+    panel: "bg-sand text-ink",
+    chip: "bg-ink text-cream",
   },
   {
     name: "Meridian Architecture",
+    initials: "MA",
     category: "Architecture · Portfolio",
     result: "+210% project requests",
-    gradient: "from-[#d9d3ce] via-[#a89c92] to-[#4a4038]",
+    panel: "bg-ink text-orange",
+    chip: "bg-cream text-ink",
   },
   {
     name: "Stonewell Legal",
+    initials: "SL",
     category: "Professional services",
     result: "+87% consult bookings",
-    gradient: "from-[#cfd7db] via-[#7f97a1] to-[#2e3f47]",
+    panel: "bg-orange text-ink",
+    chip: "bg-ink text-cream",
   },
   {
     name: "Arbor House",
+    initials: "AH",
     category: "Real estate · Website",
-    result: "2.4x average time on site",
-    gradient: "from-[#e8ddc7] via-[#c7a97a] to-[#6b4a2e]",
+    result: "2.4× time on site",
+    panel: "bg-paper text-orange",
+    chip: "bg-orange text-white",
   },
 ];
 
 export default function Work() {
   return (
-    <section id="work" className="py-28 md:py-36">
+    <section id="work" className="bg-cream py-24 md:py-32">
       <div className="container-px mx-auto max-w-8xl">
         <Reveal>
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <h2 className="font-display text-4xl leading-tight tracking-tightest md:text-6xl">
-              Selected work
+          <div className="flex flex-col gap-6 border-b border-ink/15 pb-8 md:flex-row md:items-end md:justify-between">
+            <h2 className="font-display text-5xl font-extrabold uppercase leading-[0.9] tracking-tightest md:text-7xl">
+              Selected
+              <br />
+              work
             </h2>
             <p className="max-w-sm text-ink/60">
-              A handful of the brands we&apos;ve helped design, build, and
-              grow — each one measured against a single question: did it
-              move the business forward?
+              Six of the brands we&apos;ve shaped, built, and shipped — each one
+              measured against one question: did it move the business forward?
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.06}>
-              <a
-                href="#contact"
-                className="group block overflow-hidden rounded-2xl border border-ink/10 bg-paper transition-shadow hover:shadow-xl hover:shadow-ink/5"
-              >
+              <a href="#contact" className="group block">
                 <div
-                  className={`relative h-64 w-full overflow-hidden bg-gradient-to-br ${p.gradient}`}
+                  className={`relative flex h-72 items-end overflow-hidden p-6 ${p.panel}`}
                 >
-                  <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/10" />
-                  <div className="absolute bottom-4 left-4 rounded-full bg-cream/90 px-3 py-1 text-xs text-ink">
+                  <span className="pointer-events-none absolute -right-4 -top-10 select-none font-display text-[11rem] font-extrabold uppercase leading-none tracking-tightest opacity-20 transition-transform duration-700 group-hover:-translate-x-3 group-hover:translate-y-2">
+                    {p.initials}
+                  </span>
+                  <span
+                    className={`relative px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] ${p.chip}`}
+                  >
                     {p.result}
-                  </div>
+                  </span>
                 </div>
-                <div className="flex items-center justify-between p-6">
+
+                <div className="flex items-start justify-between gap-4 border-x border-b border-ink/15 bg-paper p-6">
                   <div>
-                    <h3 className="font-display text-xl">{p.name}</h3>
+                    <h3 className="font-display text-xl font-bold uppercase tracking-headline">
+                      {p.name}
+                    </h3>
                     <p className="mt-1 text-sm text-ink/50">{p.category}</p>
                   </div>
-                  <span className="translate-x-0 text-xl text-ink/40 transition-transform group-hover:translate-x-1 group-hover:text-ink">
+                  <span className="text-xl text-ink/30 transition-all group-hover:translate-x-1 group-hover:text-orange">
                     →
                   </span>
                 </div>

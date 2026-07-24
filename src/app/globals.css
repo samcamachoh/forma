@@ -7,27 +7,13 @@ html {
 }
 
 body {
-  background-color: #f5f1ea;
-  color: #171410;
+  background-color: #ede6db;
+  color: #12100e;
 }
 
 ::selection {
-  background-color: #c25c3b;
-  color: #f5f1ea;
-}
-
-.noise {
-  position: relative;
-}
-
-.noise::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-color: #ff5a00;
+  color: #ffffff;
 }
 
 .container-px {
@@ -49,7 +35,44 @@ body {
   }
 }
 
-.text-outline {
-  -webkit-text-stroke: 1px #171410;
-  color: transparent;
+/* Fades the tiled monogram field out at the edges so the hero copy always
+   lands on quiet ground. */
+.logo-field {
+  -webkit-mask-image: radial-gradient(
+    100% 110% at 50% 50%,
+    #000 0%,
+    #000 55%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    100% 110% at 50% 50%,
+    #000 0%,
+    #000 55%,
+    transparent 100%
+  );
+}
+
+.grain {
+  position: relative;
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-drift,
+  .animate-marquee {
+    animation: none !important;
+  }
 }

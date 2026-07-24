@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import LogoField from "./LogoField";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -13,12 +13,12 @@ function MaskLine({
   delay: number;
 }) {
   return (
-    <span className="block overflow-hidden">
+    <span className="block overflow-hidden pb-[0.06em]">
       <motion.span
         className="block"
         initial={{ y: "115%" }}
         animate={{ y: "0%" }}
-        transition={{ duration: 1, delay, ease }}
+        transition={{ duration: 1.05, delay, ease }}
       >
         {children}
       </motion.span>
@@ -27,76 +27,60 @@ function MaskLine({
 }
 
 export default function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const blobOneY = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const blobTwoY = useTransform(scrollYProgress, [0, 1], [0, 60]);
-
   return (
     <section
-      ref={ref}
       id="top"
-      className="relative overflow-hidden pt-40 pb-24 md:pt-52 md:pb-32"
+      className="grain relative flex min-h-[92vh] flex-col justify-center overflow-hidden bg-cream pb-24 pt-36 md:pb-28 md:pt-40"
     >
-      <motion.div
-        style={{ y: blobOneY }}
-        aria-hidden
-        className="pointer-events-none absolute -top-40 right-[-10%] h-[36rem] w-[36rem] rounded-full bg-clay/20 blur-3xl"
-      />
-      <motion.div
-        style={{ y: blobTwoY }}
-        aria-hidden
-        className="pointer-events-none absolute top-40 left-[-15%] h-[28rem] w-[28rem] rounded-full bg-moss/15 blur-3xl"
-      />
+      <LogoField />
 
       <div className="container-px relative mx-auto max-w-8xl">
-        <h1 className="max-w-5xl font-display text-[13vw] leading-[0.95] tracking-tightest md:text-[6.5rem]">
-          <MaskLine delay={0}>We design</MaskLine>
-          <MaskLine delay={0.1}>
-            <span className="relative inline-block italic text-clay">
-              beautiful
-              <motion.span
-                aria-hidden
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.7, delay: 0.9, ease }}
-                className="absolute -bottom-1 left-0 h-[3px] w-full origin-left bg-clay/50 md:-bottom-2"
-              />
-            </span>{" "}
-            sites that
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.28em] text-ink/50"
+        >
+          <span className="h-2 w-2 rounded-full bg-orange" />
+          Forma Design Studio — est. 2016
+        </motion.div>
+
+        <h1 className="mt-8 max-w-6xl font-display text-[15vw] font-extrabold uppercase leading-[0.86] tracking-tightest md:text-[8.5rem]">
+          <MaskLine delay={0.05}>Design</MaskLine>
+          <MaskLine delay={0.15}>
+            <span className="text-orange">with</span> weight.
           </MaskLine>
-          <MaskLine delay={0.2}>win you clients.</MaskLine>
         </h1>
 
         <motion.div
-          initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0 }}
-          animate={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
-          transition={{ duration: 0.9, delay: 0.55, ease }}
-          className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.6, ease }}
+          className="mt-12 flex flex-col gap-10 border-t border-ink/15 pt-8 md:flex-row md:items-start md:justify-between"
         >
-          <p className="max-w-md text-lg text-ink/70">
-            Forma is a boutique studio building intentional, high-conversion
-            websites for ambitious brands — engineered to turn attention into
-            growth.
+          <p className="max-w-md text-lg leading-relaxed text-ink/70">
+            We build brands and websites with a point of view — bold form,
+            ruthless clarity, and engineering that holds up long after launch.
           </p>
 
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-cream transition-transform hover:scale-[1.03]"
+              className="group inline-flex items-center gap-3 bg-orange px-8 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-ink"
             >
               Start a project
-              <span aria-hidden>→</span>
+              <span
+                aria-hidden
+                className="transition-transform group-hover:translate-x-1"
+              >
+                →
+              </span>
             </a>
             <a
               href="#work"
-              className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-7 py-3.5 text-ink/80 hover:border-ink hover:text-ink transition-colors"
+              className="inline-flex items-center gap-3 border border-ink/25 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-ink transition-colors hover:border-ink hover:bg-ink hover:text-cream"
             >
-              See our work
+              See the work
             </a>
           </div>
         </motion.div>
