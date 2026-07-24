@@ -1,5 +1,3 @@
-import Logo from "./Logo";
-
 const names = [
   "Aurelia",
   "Northfield",
@@ -22,7 +20,10 @@ export default function Marquee() {
             <span className="font-display text-lg font-extrabold uppercase tracking-[0.12em] md:text-xl">
               {n}
             </span>
-            <Logo className="mx-8 w-9 shrink-0 text-white/70 md:mx-10" />
+            <span
+              aria-hidden
+              className="mx-8 h-1.5 w-1.5 shrink-0 rounded-full bg-white/50 md:mx-10"
+            />
           </span>
         ))}
       </div>
