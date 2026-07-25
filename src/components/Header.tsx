@@ -31,7 +31,7 @@ export default function Header() {
     >
       <div className="container-px mx-auto flex h-20 max-w-8xl items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
-          <Logo className="w-16 text-orange" title="Forma Design Studio" />
+          <Logo className="w-20 text-orange" title="Forma Design Studio" />
           <span className="hidden text-xs font-semibold uppercase tracking-[0.24em] text-ink/60 sm:block">
             Forma Design Studio
           </span>
